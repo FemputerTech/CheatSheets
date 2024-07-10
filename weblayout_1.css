@@ -1,6 +1,11 @@
 :root {
   /* Sidebar */
   --sidebar-background-color: #838383;
+  --sidebar-width: 200px;
+  --sidebar-border: 1px solid darkgray;
+  --sidebar-logo-height: 70px;
+  --sidebar-item-height: 40px;
+  --sidebar-background-color-hover: darkgray;
 
   /* Navbar */
   --navbar-background-color: #9e9e9e;
@@ -29,22 +34,23 @@ body {
   height: 100%;
 }
 
+/************ Sidebar ************/
 #sidebar {
   background-color: var(--sidebar-background-color);
-  width: 200px;
+  width: var(--sidebar-width);
 }
 
 #logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid darkgray;
+  border-bottom: var(--sidebar-border);
   padding: 10px;
-  height: 70px;
+  height: var(--sidebar-logo-height);
 }
 
 #favorites {
-  border-bottom: 1px solid darkgray;
+  border-bottom: var(--sidebar-border);
   padding: 0;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -76,7 +82,7 @@ body {
   list-style-type: none;
   padding: 10px;
   width: 100%;
-  height: 40px;
+  height: var(--sidebar-item-height);
 }
 
 .sidebar-list .item .sidebar-icon {
@@ -84,9 +90,11 @@ body {
 }
 
 .sidebar-list .item:hover {
-  background-color: darkgray;
+  cursor: pointer;
+  background-color: var(--sidebar-background-color-hover);
 }
 
+/************ Main Section ************/
 #main {
   display: flex;
   flex-direction: column;
@@ -94,6 +102,7 @@ body {
   width: 100%;
 }
 
+/************ Navbar ************/
 nav {
   display: flex;
   flex-direction: row;
@@ -149,6 +158,7 @@ header {
   height: 350px;
 }
 
+/************ Content Section ************/
 #content {
   background-color: var(--content-background-color);
   flex: 1;
