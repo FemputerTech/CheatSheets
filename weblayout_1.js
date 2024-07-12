@@ -2,42 +2,62 @@ let favoritesList = document.getElementById("favorites-list");
 let categoriesList = document.getElementById("categories-list");
 const favorites = [
   {
-    title: "favorite item 1",
-    icon: '<img src="square.fill.png" />',
+    title: "Popular",
+    icon: '<img src="square.fill.png" alt="Popular icon"/>',
   },
   {
-    title: "favorite item 2",
-    icon: '<img src="square.fill.png" />',
+    title: "Top Rated",
+    icon: '<img src="square.fill.png" alt="Top rated icon"/>',
   },
   {
-    title: "favorite item 3",
-    icon: '<img src="square.fill.png" />',
+    title: "Upcoming",
+    icon: '<img src="square.fill.png" alt="Upcoming icon"/>',
   },
 ];
 const categories = [
   {
-    title: "item 1",
-    icon: '<img src="square.fill.png" />',
+    title: "Action",
+    icon: '<img src="square.fill.png" alt="Action icon"/>',
   },
   {
-    title: "item 2",
-    icon: '<img src="square.fill.png" />',
+    title: "Adventure",
+    icon: '<img src="square.fill.png" alt="Adventure icon" />',
   },
   {
-    title: "item 3",
-    icon: '<img src="square.fill.png" />',
+    title: "Animation",
+    icon: '<img src="square.fill.png" alt="Animation icon" />',
   },
   {
-    title: "item 4",
-    icon: '<img src="square.fill.png" />',
+    title: "Comedy",
+    icon: '<img src="square.fill.png" alt="Comedy icon" />',
   },
   {
-    title: "item 5",
-    icon: '<img src="square.fill.png" />',
+    title: "Crime",
+    icon: '<img src="square.fill.png" alt="Crime icon"/>',
   },
   {
-    title: "item 6",
-    icon: '<img src="square.fill.png" />',
+    title: "Documentary",
+    icon: '<img src="square.fill.png" alt="Documentary icon"/>',
+  },
+  {
+    title: "Drama",
+    icon: '<img src="square.fill.png" alt="Drama icon"/>',
+  },
+  {
+    title: "Family",
+    icon: '<img src="square.fill.png" alt="Family icon"/>',
+  },
+  {
+    title: "Fantasy",
+    icon: '<img src="square.fill.png" alt="Fantasy icon"/>',
+  },
+  {
+    title: "History",
+    icon: '<img src="square.fill.png" alt="History icon"/>',
+  },
+  {
+    title: "Horror",
+    icon: '<img src="square.fill.png" alt="Horror icon"/>',
   },
 ];
 
