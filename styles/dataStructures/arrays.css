@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  font-family: Arial, sans-serif;
+}
+
+.sheet {
+  background-color: white;
+  margin: 0 auto;
+  padding: 0.5in;
+  width: 8.5in;
+  height: 11in;
+}
