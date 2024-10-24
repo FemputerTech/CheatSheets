@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bubble Sort Page</title>
+    <title>Insertion Sort Page</title>
     <link
       href="../styles/algorithms/algorithms.css"
       rel="stylesheet"
@@ -12,8 +12,9 @@
     />
     <style>
       @font-face {
-        font-family: "ShineBubble";
-        src: url("../assets/fonts/ShineBubbleDeco-MVKJx.ttf") format("truetype");
+        font-family: "DifferentBeginning";
+        src: url("../assets/fonts/DifferentBeginningDemoRegular-8MpOJ.ttf")
+          format("truetype");
         font-weight: normal;
         font-style: normal;
       }
@@ -30,7 +31,7 @@
         --color-4-faint: rgb(198, 232, 229);
         --color-5-faint: rgb(235, 216, 235);
         --color-6-faint: rgb(248, 207, 230);
-        --title-font: "ShineBubble";
+        --title-font: "DifferentBeginning";
       }
     </style>
   </head>
@@ -39,12 +40,7 @@
       <!-- TITLE -->
       <div style="font-family: var(--title-font)" class="title">
         <h1>
-          <span style="color: var(--color-1)">B</span
-          ><span style="color: var(--color-2)">U</span
-          ><span style="color: var(--color-3)">B</span
-          ><span style="color: var(--color-4)">B</span
-          ><span style="color: var(--color-5)">L</span
-          ><span style="color: var(--color-6)">E</span>
+          <span style="color: var(--color-1)">INSERTION</span>
           <span style="color: var(--color-2)"> SORT</span>
         </h1>
       </div>
@@ -56,7 +52,10 @@
             <span>Small datasets</span>
           </li>
           <li class="list-item bullet">
-            <span>Educational purposes</span>
+            <span>Partially sorted arrays</span>
+          </li>
+          <li class="list-item bullet">
+            <span>Data comes in small increments </span>
           </li>
         </ul>
       </div>
@@ -65,19 +64,19 @@
         <h2 class="heading">Steps</h2>
         <ol class="list numbered">
           <li class="list-item number">
-            <span>Start with first element</span>
+            <span>Consider first element as sorted & start with second</span>
           </li>
           <li class="list-item number">
-            <span>Compare the current element with the next element</span>
+            <span>Compare current element with elements in sorted portion</span>
           </li>
           <li class="list-item number">
-            <span>if current > next => swap</span>
+            <span
+              >Shift all elements larger than current one position to the
+              right</span
+            >
           </li>
           <li class="list-item number">
-            <span>Continue until end of the array</span>
-          </li>
-          <li class="list-item number">
-            <span>Repeat until no more elements need to be swapped</span>
+            <span>Move to next and repeat until sorted</span>
           </li>
         </ol>
       </div>
@@ -89,7 +88,7 @@
           <li class="list-item bullet"><span>Worst Case: O(n²)</span></li>
           <li class="list-item bullet"><span>Average Case: O(n²)</span></li>
           <li class="list-item bullet">
-            <span>Best Case: O(n) (already sorted)</span>
+            <span>Best Case: O(n) (already nearly sorted)</span>
           </li>
         </ul>
         <!-- space -->
@@ -104,10 +103,13 @@
         <h2 class="heading">Advantages</h2>
         <ul class="list bulleted">
           <li class="list-item bullet">
-            <span>Simple and easy to implement</span>
+            <span>Efficient for small or nearly sorted datasets</span>
           </li>
           <li class="list-item bullet">
-            <span>No additional memory required</span>
+            <span>Simple to implement</span>
+          </li>
+          <li class="list-item bullet">
+            <span>Stable: preserves relative order</span>
           </li>
         </ul>
         <!-- disadvantages -->
@@ -117,7 +119,7 @@
             <span>Inefficient for large datasets</span>
           </li>
           <li class="list-item bullet">
-            <span>Not used in real world applications</span>
+            <span>O(n²) in avg and worst cases</span>
           </li>
         </ul>
       </div>

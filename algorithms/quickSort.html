@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bubble Sort Page</title>
+    <title>Quick Sort Page</title>
     <link
       href="../styles/algorithms/algorithms.css"
       rel="stylesheet"
@@ -12,8 +12,9 @@
     />
     <style>
       @font-face {
-        font-family: "ShineBubble";
-        src: url("../assets/fonts/ShineBubbleDeco-MVKJx.ttf") format("truetype");
+        font-family: "Theaters";
+        src: url("../assets/fonts/TheatersDemoRegular-9YRM7.ttf")
+          format("truetype");
         font-weight: normal;
         font-style: normal;
       }
@@ -30,7 +31,7 @@
         --color-4-faint: rgb(198, 232, 229);
         --color-5-faint: rgb(235, 216, 235);
         --color-6-faint: rgb(248, 207, 230);
-        --title-font: "ShineBubble";
+        --title-font: "Theaters";
       }
     </style>
   </head>
@@ -39,12 +40,7 @@
       <!-- TITLE -->
       <div style="font-family: var(--title-font)" class="title">
         <h1>
-          <span style="color: var(--color-1)">B</span
-          ><span style="color: var(--color-2)">U</span
-          ><span style="color: var(--color-3)">B</span
-          ><span style="color: var(--color-4)">B</span
-          ><span style="color: var(--color-5)">L</span
-          ><span style="color: var(--color-6)">E</span>
+          <span style="color: var(--color-1)">QUICK</span>
           <span style="color: var(--color-2)"> SORT</span>
         </h1>
       </div>
@@ -53,10 +49,10 @@
         <h2 class="heading">Use Cases</h2>
         <ul class="list bulleted">
           <li class="list-item bullet">
-            <span>Small datasets</span>
+            <span>Large datasets</span>
           </li>
           <li class="list-item bullet">
-            <span>Educational purposes</span>
+            <span>Systems with limited memory</span>
           </li>
         </ul>
       </div>
@@ -65,19 +61,22 @@
         <h2 class="heading">Steps</h2>
         <ol class="list numbered">
           <li class="list-item number">
-            <span>Start with first element</span>
+            <span>Choose a "pivot" element (i.e. first element)</span>
           </li>
           <li class="list-item number">
-            <span>Compare the current element with the next element</span>
+            <span
+              >Put everything smaller than pivot into left array and everything
+              greater into right array</span
+            >
           </li>
           <li class="list-item number">
-            <span>if current > next => swap</span>
+            <span>Recursively apply the same process to left and right</span>
           </li>
           <li class="list-item number">
-            <span>Continue until end of the array</span>
+            <span>Base case when subarray has &lt 2 elements</span>
           </li>
           <li class="list-item number">
-            <span>Repeat until no more elements need to be swapped</span>
+            <span>Continue until sorted</span>
           </li>
         </ol>
       </div>
@@ -86,16 +85,22 @@
         <!-- time -->
         <h2 class="heading">Time Complexity</h2>
         <ul class="list bulleted">
-          <li class="list-item bullet"><span>Worst Case: O(n²)</span></li>
-          <li class="list-item bullet"><span>Average Case: O(n²)</span></li>
           <li class="list-item bullet">
-            <span>Best Case: O(n) (already sorted)</span>
+            <span>Worst Case: O(n²) (poorly chosen pivot)</span>
+          </li>
+          <li class="list-item bullet">
+            <span>Average Case: O(nlogn)</span>
+          </li>
+          <li class="list-item bullet">
+            <span>Best Case: O(nlogn)</span>
           </li>
         </ul>
         <!-- space -->
         <h2 class="heading">Space Complexity</h2>
         <ul class="list bulleted">
-          <li class="list-item bullet"><span>O(1) (in-place)</span></li>
+          <li class="list-item bullet">
+            <span>O(logn) (due to recursion)</span>
+          </li>
         </ul>
       </div>
       <!-- PROS & CONS -->
@@ -104,20 +109,26 @@
         <h2 class="heading">Advantages</h2>
         <ul class="list bulleted">
           <li class="list-item bullet">
-            <span>Simple and easy to implement</span>
+            <span>Very efficient on average</span>
           </li>
           <li class="list-item bullet">
-            <span>No additional memory required</span>
+            <span>Performs well for large datasets</span>
+          </li>
+          <li class="list-item bullet">
+            <span>In-place sorting (small amount of additional memory)</span>
           </li>
         </ul>
         <!-- disadvantages -->
         <h2 class="heading">Disadvantages</h2>
         <ul class="list bulleted">
           <li class="list-item bullet">
-            <span>Inefficient for large datasets</span>
+            <span>Poor pivot choice causes imbalanced partitions</span>
           </li>
           <li class="list-item bullet">
-            <span>Not used in real world applications</span>
+            <span>Unstable: relative order may not be preserved</span>
+          </li>
+          <li class="list-item bullet">
+            <span>Recursion can lead to stack overflow</span>
           </li>
         </ul>
       </div>

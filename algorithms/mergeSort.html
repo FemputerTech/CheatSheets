@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bubble Sort Page</title>
+    <title>Merge Sort Page</title>
     <link
       href="../styles/algorithms/algorithms.css"
       rel="stylesheet"
@@ -12,8 +12,9 @@
     />
     <style>
       @font-face {
-        font-family: "ShineBubble";
-        src: url("../assets/fonts/ShineBubbleDeco-MVKJx.ttf") format("truetype");
+        font-family: "Theaters";
+        src: url("../assets/fonts/TheatersDemoRegular-9YRM7.ttf")
+          format("truetype");
         font-weight: normal;
         font-style: normal;
       }
@@ -30,21 +31,17 @@
         --color-4-faint: rgb(198, 232, 229);
         --color-5-faint: rgb(235, 216, 235);
         --color-6-faint: rgb(248, 207, 230);
-        --title-font: "ShineBubble";
+        --title-font: "Theaters";
       }
     </style>
   </head>
   <body>
     <div class="cheat-sheet">
       <!-- TITLE -->
+      <p>divide and conquer</p>
       <div style="font-family: var(--title-font)" class="title">
         <h1>
-          <span style="color: var(--color-1)">B</span
-          ><span style="color: var(--color-2)">U</span
-          ><span style="color: var(--color-3)">B</span
-          ><span style="color: var(--color-4)">B</span
-          ><span style="color: var(--color-5)">L</span
-          ><span style="color: var(--color-6)">E</span>
+          <span style="color: var(--color-1)">MERGE</span>
           <span style="color: var(--color-2)"> SORT</span>
         </h1>
       </div>
@@ -53,10 +50,13 @@
         <h2 class="heading">Use Cases</h2>
         <ul class="list bulleted">
           <li class="list-item bullet">
-            <span>Small datasets</span>
+            <span>Large datasets</span>
           </li>
           <li class="list-item bullet">
-            <span>Educational purposes</span>
+            <span>Linked lists</span>
+          </li>
+          <li class="list-item bullet">
+            <span>Require stable sorting</span>
           </li>
         </ul>
       </div>
@@ -65,19 +65,22 @@
         <h2 class="heading">Steps</h2>
         <ol class="list numbered">
           <li class="list-item number">
-            <span>Start with first element</span>
+            <span
+              >Divide: Split until each subarray contains 1 element (base case).
+            </span>
           </li>
           <li class="list-item number">
-            <span>Compare the current element with the next element</span>
+            <span>Conquer: Recursively sort</span>
           </li>
           <li class="list-item number">
-            <span>if current > next => swap</span>
-          </li>
-          <li class="list-item number">
-            <span>Continue until end of the array</span>
-          </li>
-          <li class="list-item number">
-            <span>Repeat until no more elements need to be swapped</span>
+            <span>Combine: Merge sorted halves back together:</span>
+            <ul class="list bulleted">
+              <li class="list-item bullet">Compare elements of each half</li>
+              <li class="list-item bullet">Insert smaller into merged array</li>
+              <li class="list-item bullet">
+                Continue until all elements are merged
+              </li>
+            </ul>
           </li>
         </ol>
       </div>
@@ -86,16 +89,16 @@
         <!-- time -->
         <h2 class="heading">Time Complexity</h2>
         <ul class="list bulleted">
-          <li class="list-item bullet"><span>Worst Case: O(n²)</span></li>
-          <li class="list-item bullet"><span>Average Case: O(n²)</span></li>
           <li class="list-item bullet">
-            <span>Best Case: O(n) (already sorted)</span>
+            <span>O(nlogn)</span>
           </li>
         </ul>
         <!-- space -->
         <h2 class="heading">Space Complexity</h2>
         <ul class="list bulleted">
-          <li class="list-item bullet"><span>O(1) (in-place)</span></li>
+          <li class="list-item bullet">
+            <span>O(n) (temporary arrays)</span>
+          </li>
         </ul>
       </div>
       <!-- PROS & CONS -->
@@ -104,20 +107,25 @@
         <h2 class="heading">Advantages</h2>
         <ul class="list bulleted">
           <li class="list-item bullet">
-            <span>Simple and easy to implement</span>
+            <span>Efficient for large datasets and linked lists</span>
           </li>
           <li class="list-item bullet">
-            <span>No additional memory required</span>
+            <span>Performs consistently well</span>
+          </li>
+          <li class="list-item bullet">
+            <span>Stable: preserves relative order</span>
           </li>
         </ul>
         <!-- disadvantages -->
         <h2 class="heading">Disadvantages</h2>
         <ul class="list bulleted">
           <li class="list-item bullet">
-            <span>Inefficient for large datasets</span>
+            <span>Less memory efficient</span>
           </li>
           <li class="list-item bullet">
-            <span>Not used in real world applications</span>
+            <span
+              >Slower for smaller datasets due to recursive call overhead</span
+            >
           </li>
         </ul>
       </div>
