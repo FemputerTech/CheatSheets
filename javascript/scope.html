@@ -54,6 +54,7 @@
           </ul>
         </div>
       </div>
+      <!-- HOISTING -->
       <h2>Hoisting</h2>
       <p>
         Makes functions and variables available in memory during the
@@ -80,7 +81,11 @@
           <strong>Functions:</strong> If you declare a function using
           <code>function foo() {}</code>, both the <strong>name</strong> and the
           <strong>body</strong> are hoisted to the top, meaning you can call the
-          function before its definition in the code.
+          function before its definition in the code. HOWEVER! if you assign a
+          function with a variable.
+          <code>let getValue = function (value) { console.log(value) }</code>
+          only the variable declaration is hoisted, not the function name and
+          body.
         </li>
         <li>
           <strong>Variables:</strong>
@@ -123,6 +128,7 @@
         make things more intuitive. These new variables are hoisted, but can't
         be used before they are initialized, which helps prevent bugs.
       </p>
+      <!-- CLOSURES -->
       <h2>Closures</h2>
       <p>
         Created when a function is defined inside another function and gains
