@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-regular: "Shantell Sans", cursive;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  font-family: var(--font-regular);
+  font-size: 16px;
+}
+
+.cheat-sheet {
+  /* display: grid; */
+  /* grid-template-columns: 0.9fr 1fr; */
+  /* grid-template-rows: 70px auto auto auto auto; */
+  background-color: white;
+  margin: 20px auto;
+  padding: 0.5in;
+  width: 8.5in;
+  min-height: 11in;
+  gap: 10px;
+}
+
+.types-of-scope {
+  display: flex;
+  gap: 20px;
+}
+
+.types-of-scope div ul {
+  list-style: none;
+}

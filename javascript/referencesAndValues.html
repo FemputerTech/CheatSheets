@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>References and Values</title>
+  </head>
+  <link
+    href="../styles/javascript/javascript.css"
+    rel="stylesheet"
+    type="text/css"
+    media="all"
+  />
+  <body>
+    <div class="cheat-sheet">
+      <h1>References and Values</h1>
+      <h2>Primitive Data Types (Values)</h2>
+      <p>Such as: string, number, boolean, etc.</p>
+      <p>
+        These hold their actual value. When you assign a primitive value to a
+        variable or pass it to a function, a <strong>copy</strong> of that value
+        is created
+      </p>
+      <h3>Key characteristics:</h3>
+      <ul>
+        <li>
+          <strong>Pass-by-value:</strong> When you assign a primitive to a
+          variable, or pass it to a function, you get a copy of the value.
+        </li>
+        <li>
+          <strong>Immutability:</strong> You can't modify the original primitive
+          value directly once it's been set. However, you can assign a new value
+          to the variable.
+        </li>
+        <li>
+          <strong>Reassigning:</strong> Reassigning a primitive means setting it
+          to a new value.
+        </li>
+      </ul>
+      <h3>Example</h3>
+      <pre>
+        let a = 10;
+        let b = a; // Copy of the value, not a reference
+
+        b = 20; // Reassigning b won't affect a
+        console.log(a); // 10
+        console.log(b); // 20
+      </pre>
+      <h2>Objects and Arrays (References)</h2>
+      <p>
+        Objects (including arrays and functions) in JavaScript are reference
+        types. When you assign an object to a variable or pass it to a function,
+        you're not copying the actual object. Instead, you're copying the
+        reference (or memory address) where the object is stored.
+      </p>
+      <h3>Key characteristics:</h3>
+      <ul>
+        <li>
+          <strong>Pass-by-refernce:</strong> When you assign an object to a
+          variable, or pass it to a function, you are passing the reference to
+          the original object, not a copy of the object.
+        </li>
+        <li>
+          <strong>Mutability:</strong> Objects can be modified. If you change a
+          property of an object or an array, those changes affect all references
+          to the object.
+        </li>
+        <li>
+          <strong>Reassigning:</strong> Reassigning a reference means pointing
+          it to a different memory location.
+        </li>
+      </ul>
+      <h3>Example</h3>
+      <pre>
+        let obj1 = { name: 'Alice' };
+        let obj2 = obj1; // obj2 is a reference to the same object as obj1
+
+        obj2.name = 'Bob'; // Modifying obj2 also affects obj1
+        console.log(obj1.name); // Bob
+        console.log(obj2.name); // Bob
+      </pre>
+    </div>
+  </body>
+</html>

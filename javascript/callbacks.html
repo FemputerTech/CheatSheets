@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callbacks</title>
+    <link
+      href="../styles/javascript/javascript.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+  </head>
+  <body>
+    <div class="cheat-sheet">
+      <h1>Callbacks</h1>
+      <p>
+        Simply a function that is
+        <strong>passed as an argument to another function</strong>.
+      </p>
+      <p>
+        The outer function will eventually call (or "invoke") the callback
+        function after it completes its own task.
+      </p>
+      <h2>How it works</h2>
+      <ul>
+        <li>
+          When you pass a function as an argument, you're passing a reference to
+          that function in memory.
+        </li>
+        <li>
+          Inside the outer function, you can call the callback function using
+          the reference that was passed in. The callback doesn't get executed
+          immediately; it gets invoked when the outer function is ready.
+        </li>
+        <li>
+          Because the callback is passed by reference, the outer function can
+          invoke the same instance of the function that was passed in, not a
+          copy. This means any changes (like closures or variable access) within
+          the callback will use the same memory context as the original
+          function.
+        </li>
+      </ul>
+      <h3>Example</h3>
+      <pre>
+        function outerFunction(callback) {
+          console.log("Outer function started!");
+          callback();
+          console.log("Outer function finished!");
+        }
+
+        function innerFunction() {
+          console.log("Inside the callback function!");
+        }
+
+        outerFunction(innerFunction);
+      </pre>
+      <h3>Asynchronous Programming</h3>
+      <p>
+        Callbacks are essential in asynchronous programming (setTimeout, event
+        listeners, promises) because it allows the program to continue executing
+        without freezing the rest of the program. While the JavaScript runtime
+        is waiting for the asynchronous task to complete, it can continue
+        executing other code, and once the task finishes, the callback is
+        invoked to handle the result.
+      </p>
+      <h3>Callback Hell</h3>
+      <p>
+        Before ES6, we had nested callbacks. When handling multiple asynchronous
+        operations, callbacks were often nested inside other callbacks, leading
+        to deeply indented code that's hard to read and maintain. This became
+        known as callback hell.
+      </p>
+      <p>ES6 introduced Promises and async/await</p>
+      <ul>
+        <li>
+          Promises allow you to chain asynchronous operations
+          <pre>
+            fetchData()
+              .then(result => doSomethingElse(result))
+              .then(newResult => doAnotherThing(newResult))
+              .then(finalResult => console.log(finalResult))
+              .catch(error => console.error(error));
+          </pre>
+        </li>
+        <li>
+          async/await further simplified asynchronous code
+          <pre>
+            async function processData() {
+              try {
+                let result = await fetchData();
+                let newResult = await doSomethingElse(result);
+                let finalResult = await doYetAnotherThing(newResult);
+                console.log(finalResult);
+              } catch (err) {
+                console.error(err);
+              }
+            }
+            processData();
+          </pre>
+        </li>
+      </ul>
+      <h2>Callbacks and Closures</h2>
+      <p>
+        Because functions are being passed as arguments to another function,
+        they will retain access to the variables in it's lexical scope.
+      </p>
+      <p>
+        For example, when a callback is passed to an asynchronous function like
+        setTimeout or fetch(), it still has access to any variables in the scope
+        where it was created, allowing you to work with those variables even
+        after the asynchronous operation completes.
+      </p>
+      <h2>Event-driven Programming</h2>
+      <p>
+        In event-driven programming, the flow of execution is determined by
+        events—like user actions, network responses, or timers—that trigger
+        specific functions. The program doesn’t execute sequentially; instead,
+        it responds to these events as they occur.
+      </p>
+      <p>
+        To not freeze or block the rest of the program, using callbacks are key
+        to handling these operations.
+      </p>
+    </div>
+  </body>
+</html>

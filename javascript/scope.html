@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scope</title>
+    <link
+      href="../styles/javascript/javascript.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+  </head>
+  <body>
+    <div class="cheat-sheet">
+      <h1>Scope</h1>
+      <div class="types-of-scope">
+        <div class="block-scope">
+          <h2>Block Scope</h2>
+          <ul>
+            <li>
+              Variables declared inside curly braces
+              <code>{}</code> cannot be accessed from outside the block.
+            </li>
+            <li>- <code>let</code> and <code>const</code> are block scoped.</li>
+          </ul>
+        </div>
+        <div class="function-scope">
+          <h2>Function Scope</h2>
+          <ul>
+            <li>
+              Variables declared inside a function can't be accessed from
+              outside the function.
+            </li>
+            <li>- <code>var</code> is function scoped.</li>
+          </ul>
+        </div>
+        <div class="lexical-scope">
+          <h2>Lexical Scope</h2>
+          <ul>
+            <li>
+              Inner functions have access to the variables of their outer
+              functions.
+            </li>
+          </ul>
+        </div>
+        <div class="global-scope">
+          <h2>Global Scope</h2>
+          <ul>
+            <li>
+              Variables declared outside of any functions of blocks are
+              accessible everywhere in the code.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h2>Hoisting</h2>
+      <p>
+        Makes functions and variables available in memory during the
+        <strong>compilation phase</strong>, even before they are actually
+        written in code. However, <strong>only declarations</strong> are
+        hoisted, not their <strong>initializations</strong>.
+      </p>
+      <h3>Proof of Hoisting</h3>
+      <pre>
+        function greetPerson(name) {
+          if (name === "Meghan") {
+            greet = "Hello Meghan";
+          } else {
+            greet = "Hi there";
+          }
+          console.log(greet);
+          var greet;
+        }
+        
+        greetPerson("Meghan");
+      </pre>
+      <ul>
+        <li>
+          <strong>Functions:</strong> If you declare a function using
+          <code>function foo() {}</code>, both the <strong>name</strong> and the
+          <strong>body</strong> are hoisted to the top, meaning you can call the
+          function before its definition in the code.
+        </li>
+        <li>
+          <strong>Variables:</strong>
+          <ul>
+            <li>
+              <strong>var:</strong> Only the declaration (e.g., var a;) is
+              hoisted, not the initialization (e.g., a = 10;). This means
+              <code>a</code> is initialized to <code>undefined</code> when
+              hoisted, so if you try to use it before its initialization, you’ll
+              get <code>undefined</code>.
+            </li>
+            <li>
+              <strong>let and const:</strong>
+              These are hoisted, but live in a
+              <strong>Temporal Dead Zone (TDZ)</strong>
+              until they are initialized. If you try to access them before
+              initialization, you'll get a
+              <strong>ReferenceError</strong>.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h3>Why Hoisting?</h3>
+      <p>
+        Necessary because it ensures that variables and functions are available
+        in their scope no matter where they appear in code.
+      </p>
+      <h4>Example:</h4>
+      <pre>
+        function foo() {
+            console.log(a);
+            var a = 10;
+        }
+        foo(); // undefined</pre
+      >
+      <h3>ES6 Changes (let and const)</h3>
+      <p>
+        Before ES6, only <code>var</code> existed, and its hoisting behvarior
+        could be confusing. ES6 added <code>let</code> and <code>const</code> to
+        make things more intuitive. These new variables are hoisted, but can't
+        be used before they are initialized, which helps prevent bugs.
+      </p>
+      <h2>Closures</h2>
+      <p>
+        Created when a function is defined inside another function and gains
+        access to the outer function's variables. This means that the inner
+        function <strong>"remembers"</strong> the variables from its outer
+        scope, even after the outer function has finished executing.
+      </p>
+      <p>
+        Essentially, they are a combination of a function and it's
+        <strong>lexical scope</strong>, which plays a significant role in
+        asynchronous programming.
+      </p>
+      <h3>Use cases</h3>
+      <ul>
+        <li>
+          <strong>Callbacks and Asynchronous Functions:</strong> Essential for
+          handling callbacks and asynchronous functions, allowing them to
+          remember the state of variables even after an asynchronous operation
+          has completed.
+        </li>
+        <li>
+          <strong>Data Encapsulation:</strong> Used to create private variables
+          that are not directly accessible from the outside, helping with data
+          hiding and encapsulation with out worrying the `this` keyword.
+        </li>
+      </ul>
+      <h2>Shadowing (Variable Shadowing)</h2>
+      <p>
+        Happens when a variable in an inner scope (like inside a function,
+        block, or loop) has the same name as one in an outer scope. This results
+        in the inner variable to <strong>"hide"</strong> the outer one within
+        that scope.
+      </p>
+      <ul>
+        <li>
+          <strong>let and const:</strong> The inner variable shadows the outer
+          variable within the specific block, but the outer variable remains
+          intact outside that block. This behavior is due to block-scoping.
+        </li>
+        <li>
+          <strong>var:</strong> The inner variable also shadows the outer
+          variable, but because var is function-scoped, the inner var will
+          actually overwrite the outer variable within the entire function. The
+          inner variable is not limited to the block scope, so it affects the
+          outer scope.
+        </li>
+      </ul>
+      <h2>Scope Chain</h2>
+      <p>
+        When trying to access a variable, JavaScript first checks the current
+        (local) scope. If the variable is not found, it checks the outer scopes,
+        continuing until it reaches the global scope. If the variable is not
+        found in any scope, a ReferenceError is thrown.
+      </p>
+    </div>
+  </body>
+</html>
